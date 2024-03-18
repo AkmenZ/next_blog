@@ -1,5 +1,5 @@
-import fs from "fs";
 import { compileMDX } from "next-mdx-remote/rsc";
+import rehypeHighlight from "rehype-highlight";
 
 export type Metadata = {
   slug: string;
@@ -54,6 +54,11 @@ export async function getPostByName(name: string): Promise<Post> {
     source: mdx,
     options: {
       parseFrontmatter: true,
+      mdxOptions: {
+        rehypePlugins: [
+          rehypeHighlight,
+        ],
+      },
     },
   });
 
@@ -74,7 +79,7 @@ export async function getPostByName(name: string): Promise<Post> {
   return postObj;
 }
 
-export async function getPostsMetadatas(): Promise<Metadata[] | undefined> {
+export async function getPostsMetadata(): Promise<Metadata[] | undefined> {
   const res = await fetch(
     "https://api.github.com/repos/Akmenz/mdx_blogposts/git/trees/main?recursive=1",
     {
@@ -111,21 +116,5 @@ export async function getPostsMetadatas(): Promise<Metadata[] | undefined> {
 
   console.log(`Posts metadata:`, posts);
 
-  return posts.sort((a, b) => (a.date < b.date ? 1 : -1))
+  return posts.sort((a, b) => (a.date < b.date ? 1 : -1));
 }
-
-// export function getPostsMetadata() {
-//   const folder = "posts";
-//   const files = fs.readdirSync(folder);
-//   const markdownFiles = files.filter((file) => file.endsWith(".md"));
-//   const slugs = markdownFiles.map((file) => file.replace(".md", ""));
-//   return slugs;
-// }
-
-// // get content for individual post
-// export function getPostContentBySlug(slug: string) {
-//   const folder = "posts";
-//   const file = `${folder}/${slug}.md`;
-//   const content = fs.readFileSync(file, "utf8");
-//   return content;
-// }

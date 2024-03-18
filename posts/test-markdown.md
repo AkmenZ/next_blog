@@ -1,9 +1,0 @@
----
-title: "This is a test 2"
-date: "2024-03-17"
-description: "Testing adding posts as markdown files"
----
-
-# This is just a test
-
-This is text with [link](https://google.ie)

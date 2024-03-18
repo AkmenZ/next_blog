@@ -1,51 +1,48 @@
-import { Post, getPostByName, getPostsMetadatas } from "@/app/lib/post-utils"
+import { Post, getPostByName, getPostsMetadata } from "@/app/lib/post-utils";
+import "highlight.js/styles/github-dark-dimmed.css";
 
 type Props = {
   params: {
-      slug: string
-  }
-}
+    slug: string;
+  };
+};
 
 export async function generateStaticParams() {
-  const posts = await getPostsMetadatas()
+  const posts = await getPostsMetadata();
 
-  if (!posts) return []
+  if (!posts) return [];
 
   return posts.map((post) => ({
-      slug: post.slug
-  }))
+    slug: post.slug,
+  }));
 }
 
-export async function generateMetadata({ params: { slug } }: Props) {
+// export async function generateMetadata({ params: { slug } }: Props) {
+//   const post = await getPostByName(`${slug}.mdx`);
 
-  const post = await getPostByName(`${slug}.mdx`)
+//   if (!post) {
+//     return {
+//       title: "Not Found",
+//     };
+//   }
 
-  if (!post) {
-      return {
-          title: 'Post Not Found'
-      }
-  }
-
-  return {
-      title: post.metadata.title,
-  }
-}
+//   return {
+//     title: post.metadata.title,
+//   };
+// }
 
 export default async function Post({ params: { slug } }: Props) {
+  const post = await getPostByName(`${slug}.mdx`);
 
-  const post = await getPostByName(`${slug}.mdx`)
-
-  const { metadata, content } = post
+  const { metadata, content } = post;
 
   return (
-      <>
-          <h2 className="text-3xl mt-4 mb-0">{metadata.title}</h2>
-          <p className="mt-0 text-sm">
-              {metadata.date}
-          </p>
-          <article>
-              {content}
-          </article>
-      </>
-  )
+    <>
+      <div className="p-20">
+        <h2 className="text-5xl font-bold mt-4 mb-4">{metadata.title}</h2>
+        <article>{content}</article>
+        <p className="text-end mt-5 text-sm">Janis Akmentins {metadata.date}</p>
+      </div>
+    </>
+  );
 }
