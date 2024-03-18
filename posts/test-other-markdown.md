@@ -1,6 +1,6 @@
 ---
-title: "This is a test 2"
-date: "2024-03-17"
+title: "This is a test"
+date: "2024-03-16"
 description: "Testing adding posts as markdown files"
 ---
 

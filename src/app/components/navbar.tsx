@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Logo from "./logo";
+import Logo from "./Logo";
 
 export default function Navbar() {
   return (
@@ -13,7 +13,7 @@ export default function Navbar() {
             <Link href="/posts">All Posts</Link>
           </li>
           <li className="px-4 py-2 hover:bg-gray-700 rounded">
-            <Link href="/about">About</Link>
+            <Link href="/about">About Me</Link>
           </li>
           <li className="px-4 py-2 hover:bg-gray-700 rounded">
             <Link href="/about">Contact</Link>
