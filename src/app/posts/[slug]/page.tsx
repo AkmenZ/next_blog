@@ -1,4 +1,5 @@
-import { Post, getPostByName, getPostsMetadata } from "@/app/lib/post-utils";
+import type { Post } from "@/app/lib/post-utils";
+import { getPostByName, getPostsMetadata } from "@/app/lib/post-utils";
 import "highlight.js/styles/github-dark-dimmed.css";
 
 type Props = {

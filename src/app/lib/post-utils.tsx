@@ -26,6 +26,7 @@ export async function getPostByName(name: string): Promise<Post> {
   const res = await fetch(
     `https://raw.githubusercontent.com/Akmenz/mdx_blogposts/main/${name}`,
     {
+      next: {revalidate: 10},
       headers: {
         "Cache-Control": "no-cache",
         Accept: "application/vnd.github+json",
@@ -83,6 +84,7 @@ export async function getPostsMetadata(): Promise<Metadata[] | undefined> {
   const res = await fetch(
     "https://api.github.com/repos/Akmenz/mdx_blogposts/git/trees/main?recursive=1",
     {
+      next: {revalidate: 10},
       headers: {
         "Cache-Control": "no-cache",
         Accept: "application/vnd.github+json",

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { getPostsMetadata } from "../lib/post-utils";
 
 export default async function Posts() {
@@ -10,16 +11,26 @@ export default async function Posts() {
 
   const posts = postsMetadata.map((post) => (
     <Link href={`/posts/${post.slug}`} key={post.slug}>
-      <div>
-        <h1 className="text-3xl">{post.title}</h1>
-        <p>{post.date}</p>
-        <h2 className="text-2xl">{post.description}</h2>
+      <div className="bg-white max-w-sm rounded-lg m-auto overflow-hidden shadow-md hover:shadow-xl transform hover:scale-105 transition-all duration-300 ease-in-out">
+        <div className="bg-violet-500 h-56 w-full flex items-center justify-center">
+          <p className="text-sm absolute top-0 left-0 ml-3 mt-2">
+            {post.tags.join(" ")}
+          </p>
+          <p>here will be image</p>
+        </div>
+        <div className="px-6 py-4">
+          <h1 className="font-bold text-2xl mb-2 text-gray-800">
+            {post.title}
+          </h1>
+          <p className="text-gray-700 text-sm">{post.date}</p>
+          <h2 className="text-gray-600 text-lg mt-4">{post.description}</h2>
+        </div>
       </div>
     </Link>
   ));
 
   return (
-    <div className="flex min-h-screen flex-col p-20 gap-4 md:grid md:grid-cols-2 lg:grid-cols-3">
+    <div className="flex min-h-screen flex-col mt-16 p-10 gap-6 md:grid md:grid-cols-2 lg:grid-cols-3 justify-center">
       {posts}
     </div>
   );
