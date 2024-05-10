@@ -5,7 +5,10 @@ export type Metadata = {
   slug: string;
   title: string;
   description: string;
+  author: string;
+  authorImage: string;
   date: string;
+  image: string;
   tags: string[];
 };
 
@@ -24,9 +27,9 @@ type GitFileTree = {
 
 export async function getPostByName(name: string): Promise<Post> {
   const res = await fetch(
-    `https://raw.githubusercontent.com/Akmenz/mdx_blogposts/main/${name}`,
+    `https://raw.githubusercontent.com/Akmenz/mdx_blogposts/main/posts/${name}`,
     {
-      next: {revalidate: 10},
+      next: { revalidate: 10 },
       headers: {
         "Cache-Control": "no-cache",
         Accept: "application/vnd.github+json",
@@ -49,16 +52,17 @@ export async function getPostByName(name: string): Promise<Post> {
   const { frontmatter, content } = await compileMDX<{
     title: string;
     description: string;
+    author: string;
+    authorImage: string;
     date: string;
+    image: string;
     tags: string[];
   }>({
     source: mdx,
     options: {
       parseFrontmatter: true,
       mdxOptions: {
-        rehypePlugins: [
-          rehypeHighlight,
-        ],
+        rehypePlugins: [rehypeHighlight],
       },
     },
   });
@@ -71,7 +75,10 @@ export async function getPostByName(name: string): Promise<Post> {
       slug,
       title: frontmatter.title,
       description: frontmatter.description,
+      author: frontmatter.author,
+      authorImage: frontmatter.authorImage,
       date: frontmatter.date,
+      image: frontmatter.image || "/default.jpg",
       tags: frontmatter.tags,
     },
     content,
@@ -84,7 +91,7 @@ export async function getPostsMetadata(): Promise<Metadata[] | undefined> {
   const res = await fetch(
     "https://api.github.com/repos/Akmenz/mdx_blogposts/git/trees/main?recursive=1",
     {
-      next: {revalidate: 10},
+      next: { revalidate: 10 },
       headers: {
         "Cache-Control": "no-cache",
         Accept: "application/vnd.github+json",
@@ -102,7 +109,8 @@ export async function getPostsMetadata(): Promise<Metadata[] | undefined> {
 
   const files = gitFileTree.tree
     .map((file) => file.path)
-    .filter((path) => path.endsWith(".mdx"));
+    .filter((path) => path.endsWith(".mdx"))
+    .map((path) => path.split("/").pop()!);
 
   console.log("Files post:", files);
 

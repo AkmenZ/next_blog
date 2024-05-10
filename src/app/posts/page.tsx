@@ -12,11 +12,16 @@ export default async function Posts() {
   const posts = postsMetadata.map((post) => (
     <Link href={`/posts/${post.slug}`} key={post.slug}>
       <div className="bg-white max-w-sm rounded-lg m-auto overflow-hidden shadow-md hover:shadow-xl transform hover:scale-105 transition-all duration-300 ease-in-out">
-        <div className="bg-violet-500 h-56 w-full flex items-center justify-center">
-          <p className="text-sm absolute top-0 left-0 ml-3 mt-2">
+        <div className="relative h-56 w-full flex items-center justify-center">
+          <Image
+            src={post.image}
+            alt="image"
+            layout="fill"
+            objectFit="cover"
+          ></Image>
+          <p className="text-sm text-white bg-black bg-opacity-50 absolute top-0 left-0 ml-3 mt-2 p-1 rounded">
             {post.tags.join(" ")}
           </p>
-          <p>here will be image</p>
         </div>
         <div className="px-6 py-4">
           <h1 className="font-bold text-2xl mb-2 text-gray-800">

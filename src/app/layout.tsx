@@ -1,14 +1,13 @@
 import type { Metadata } from "next";
-import { Inter, Lato } from "next/font/google";
+import { Inter, Lato, Roboto_Flex } from "next/font/google";
 import "./globals.css";
-
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import LoginModal from "./components/LoginModal";
 import SessionProvider from "./lib/provider";
 
 const inter = Inter({ subsets: ["latin"] });
-const lato = Lato({
+const font = Roboto_Flex({
   weight: "400",
   subsets: ["latin"],
 });
@@ -25,7 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={lato.className}>
+      <body className={inter.className}>
         <SessionProvider>
           <Navbar></Navbar>
           <div className="container mx-auto">{children}</div>

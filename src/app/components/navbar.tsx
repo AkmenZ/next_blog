@@ -3,27 +3,47 @@
 import Link from "next/link";
 import Image from "next/image";
 import Logo from "./Logo";
+import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { signOut, useSession } from "next-auth/react";
+import { useState } from "react";
 
 export default function Navbar() {
   const { status, data: session } = useSession();
-  if (status === "authenticated") {
-    console.log(session?.user?.image);
-  }
+  const { scrollY } = useScroll();
+  const [navHidden, setNavHidden] = useState(false);
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    const previous = scrollY.getPrevious();
+
+    if (previous != undefined && latest > previous && latest > 100) {
+      setNavHidden(true);
+    } else {
+      setNavHidden(false);
+    }
+  });
+
   return (
     <header>
-      <nav className="fixed top-0 w-full bg-white bg-opacity-50 backdrop-blur-md text-slate-600 p-4 flex justify-between items-center z-50">
+      <motion.nav
+        variants={{
+          visible: { y: 0 },
+          hidden: { y: "-100%" },
+        }}
+        animate={navHidden ? "hidden" : "visible"}
+        transition={{ duration: 0.4, ease: "easeInOut" }}
+        className="fixed top-0 w-full bg-indigo-900 text-white p-4 flex justify-between items-center z-50"
+      >
         <Link href="/">
           <Logo></Logo>
         </Link>
         <ul className="flex space-x-4">
-          <li className="px-4 py-2 hover:text-violet-700">
+          <li className="px-4 py-2 hover:text-violet-400">
             <Link href="/posts">All Posts</Link>
           </li>
-          <li className="px-4 py-2 hover:text-violet-700">
+          <li className="px-4 py-2 hover:text-violet-400">
             <Link href="/about">About Me</Link>
           </li>
-          <li className="px-4 py-2 hover:text-violet-700">
+          <li className="px-4 py-2 hover:text-violet-400">
             <Link href="/about">Contact</Link>
           </li>
 
@@ -61,7 +81,7 @@ export default function Navbar() {
             </li>
           )}
         </ul>
-      </nav>
+      </motion.nav>
     </header>
   );
 }
