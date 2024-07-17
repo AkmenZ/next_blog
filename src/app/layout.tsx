@@ -6,6 +6,7 @@ import Footer from "./components/Footer";
 import LoginModal from "./components/LoginModal";
 import SessionProvider from "./lib/provider";
 import { Suspense } from "react";
+import { Providers } from "./providers";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,14 +23,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <SessionProvider>
-          <Navbar></Navbar>
-          <div className="container mx-auto">{children}</div>
-          <Suspense>
-            <LoginModal></LoginModal>
-          </Suspense>
-          <Footer></Footer>
-        </SessionProvider>
+        <Providers>
+          <SessionProvider>
+            <Navbar></Navbar>
+            <div className="container mx-auto">{children}</div>
+            <Suspense>
+              <LoginModal></LoginModal>
+            </Suspense>
+            <Footer></Footer>
+          </SessionProvider>
+        </Providers>
       </body>
     </html>
   );

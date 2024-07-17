@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import Logo from "./Logo";
+import { Button } from "@nextui-org/react";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { signOut, useSession } from "next-auth/react";
 import { useState } from "react";
@@ -44,18 +45,19 @@ export default function Navbar() {
             <Link href="/about">About Me</Link>
           </li>
           <li className="px-4 py-2 hover:text-violet-400">
-            <Link href="/about">Contact</Link>
+            <Link href="/contact">Contact</Link>
           </li>
 
           {session?.user && (
             <>
               <li>
-                <button
+                <Button
                   onClick={() => signOut()}
-                  className="px-4 py-2 text-white bg-violet-500 hover:bg-violet-700 rounded"
+                  radius="sm"
+                  className="px-4 py-2 text-white bg-violet-500 hover:bg-violet-700"
                 >
                   Sign Out
-                </button>
+                </Button>
               </li>
               <li>
                 <Image
@@ -71,12 +73,12 @@ export default function Navbar() {
           {!session && (
             <li>
               <Link href="?login=true">
-                <button
-                  type="button"
-                  className="px-4 py-2 text-white bg-violet-500 hover:bg-violet-700 rounded"
+                <Button
+                  radius="sm"
+                  className="px-4 py-2 text-white bg-violet-500 hover:bg-violet-700"
                 >
                   Sign In
-                </button>
+                </Button>
               </Link>
             </li>
           )}

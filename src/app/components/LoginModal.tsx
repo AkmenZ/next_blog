@@ -5,7 +5,7 @@ import { useSession, signIn } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import { faTimes } from "@fortawesome/free-solid-svg-icons/faTimes";
 
 export default function LoginModal() {
   const { status } = useSession();
