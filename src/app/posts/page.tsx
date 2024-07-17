@@ -28,7 +28,7 @@ export default async function Posts() {
             {post.title}
           </h1>
           <p className="text-gray-700 text-sm">{post.date}</p>
-          <h2 className="text-gray-600 text-lg mt-4">{post.description}</h2>
+          <h2 className="text-gray-600 text-lg mt-4 truncate overflow-hidden whitespace-nowrap text-ellipsis">{post.description}</h2>
         </div>
       </div>
     </Link>
