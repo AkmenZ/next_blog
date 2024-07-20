@@ -1,4 +1,5 @@
 import type { Post } from "@/app/lib/post-utils";
+import type { Comment } from '@/app/lib/types'
 import Image from "next/image";
 import { getPostByName, getPostsMetadata } from "@/app/lib/post-utils";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -31,7 +32,7 @@ export default async function Post({ params: { slug } }: Props) {
   const commentsResult = await getComments(slug);
 
   const { metadata, content } = post;
-  const comments = commentsResult.success && commentsResult.data ? commentsResult.data : [];
+  const comments: Comment[] = commentsResult.success && commentsResult.data ? commentsResult.data : [];
 
   return (
     <>
