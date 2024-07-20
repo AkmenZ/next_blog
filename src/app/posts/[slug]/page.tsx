@@ -8,6 +8,7 @@ import {
   faArrowUpFromBracket,
 } from "@fortawesome/free-solid-svg-icons";
 import "highlight.js/styles/github-dark-dimmed.css";
+import { getComments } from "@/app/lib/actions";
 
 type Props = {
   params: {
@@ -27,8 +28,10 @@ export async function generateStaticParams() {
 
 export default async function Post({ params: { slug } }: Props) {
   const post = await getPostByName(`${slug}.mdx`);
+  const commentsResult = await getComments(slug);
 
   const { metadata, content } = post;
+  const comments = commentsResult.success && commentsResult.data ? commentsResult.data : [];
 
   return (
     <>
@@ -66,13 +69,40 @@ export default async function Post({ params: { slug } }: Props) {
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
               <FontAwesomeIcon icon={faComment} className="h-6 w-6" />
-              <p>0</p>
+              <p>{comments.length}</p>
               <FontAwesomeIcon icon={faThumbsUp} className="h-6 w-6" />
               <p>2</p>
             </div>
             <FontAwesomeIcon icon={faArrowUpFromBracket} className="h-6 w-6" />
           </div>
         </div>
+        
+        <div className="mt-8">
+          <h3 className="text-2xl font-semibold mb-4">Comments</h3>
+          <ul className="list-disc pl-5">
+            {comments.length > 0 ? comments.map((comment) => (
+              <li key={comment.id} className="mb-2">
+                <div className="flex items-start space-x-3">
+                  <Image
+                    src={comment.authorImageUrl || "/default-avatar.png"}
+                    alt="User Image"
+                    width={30}
+                    height={30}
+                    className="rounded-full"
+                  ></Image>
+                  <div>
+                    <p className="text-sm font-semibold">{comment.authorEmail}</p>
+                    <p className="text-sm">{comment.content}</p>
+                    <p className="text-xs text-gray-500">{new Date(comment.createdAt).toLocaleString()}</p>
+                  </div>
+                </div>
+              </li>
+            )) : (
+              <li>No comments yet.</li>
+            )}
+          </ul>
+        </div>
+
       </div>
     </>
   );

@@ -19,8 +19,8 @@ export default async function Posts() {
             layout="fill"
             objectFit="cover"
           ></Image>
-          <p className="text-sm text-white bg-black bg-opacity-50 absolute top-0 left-0 ml-3 mt-2 p-1 rounded">
-            {post.tags.join(" ")}
+          <p className="text-sm text-white bg-black bg-opacity-60 absolute top-0 left-0 ml-3 mt-2 py-1 px-2 rounded">
+            {post.tags.join(" / ")}
           </p>
         </div>
         <div className="px-6 py-4">
@@ -28,7 +28,9 @@ export default async function Posts() {
             {post.title}
           </h1>
           <p className="text-gray-700 text-sm">{post.date}</p>
-          <h2 className="text-gray-600 text-lg mt-4 truncate overflow-hidden whitespace-nowrap text-ellipsis">{post.description}</h2>
+          <h2 className="text-gray-600 text-lg mt-4 truncate overflow-hidden whitespace-nowrap text-ellipsis">
+            {post.description}
+          </h2>
         </div>
       </div>
     </Link>

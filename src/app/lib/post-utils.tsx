@@ -67,7 +67,7 @@ export async function getPostByName(name: string): Promise<Post> {
     },
   });
 
-  console.log(`Frontmatter:`, frontmatter);
+  // console.log(`Frontmatter:`, frontmatter);
 
   const slug = name.replace(/\.mdx$/, "");
   const postObj: Post = {
@@ -105,19 +105,19 @@ export async function getPostsMetadata(): Promise<Metadata[] | undefined> {
 
   const gitFileTree: GitFileTree = await res.json();
 
-  console.log("File tree:", gitFileTree.tree);
+  // console.log("File tree:", gitFileTree.tree);
 
   const files = gitFileTree.tree
     .map((file) => file.path)
     .filter((path) => path.endsWith(".mdx"))
     .map((path) => path.split("/").pop()!);
 
-  console.log("Files post:", files);
+  // console.log("Files post:", files);
 
   const posts: Metadata[] = [];
 
   for (const filePath of files) {
-    console.log(`Fetching post: ${filePath}`);
+    // console.log(`Fetching post: ${filePath}`);
     const post = await getPostByName(filePath);
     if (post) {
       posts.push(post.metadata);
