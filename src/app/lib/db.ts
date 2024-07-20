@@ -1,20 +1,9 @@
 import { PrismaClient } from "@prisma/client";
 
 const prismaClientSingleton = () => {
-  //   return new PrismaClient();
   const client = new PrismaClient({
     log: ["query", "info", "warn", "error"], // Enable detailed logging
   });
-
-  // Test the database connection on client creation
-  client
-    .$connect()
-    .then(() => {
-      console.log("Connected to the database successfully");
-    })
-    .catch((error) => {
-      console.error("Failed to connect to the database", error);
-    });
 
   return client;
 };
