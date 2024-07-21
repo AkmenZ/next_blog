@@ -18,6 +18,7 @@ model Comment {
   blog    String
   content String
   authorEmail  String
+  authorName   String
   authorImageUrl  String
   createdAt    DateTime @default(now())
   @@map("comments") // mapping the collection name

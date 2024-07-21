@@ -3,6 +3,7 @@ export interface Comment {
     blog: string;
     content: string;
     authorEmail: string;
+    authorName: string;
     authorImageUrl: string;
     createdAt: Date;
   }

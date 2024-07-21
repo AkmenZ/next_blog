@@ -10,6 +10,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import "highlight.js/styles/github-dark-dimmed.css";
 import { getComments } from "@/app/lib/actions";
+import CommentForm from "@/app/components/CommentForm";
 
 type Props = {
   params: {
@@ -78,11 +79,13 @@ export default async function Post({ params: { slug } }: Props) {
           </div>
         </div>
         
-        <div className="mt-8">
+        {/* comments */}
+        <div className="mt-4">
           <h3 className="text-2xl font-semibold mb-4">Comments</h3>
-          <ul className="list-disc pl-5">
+          <CommentForm blog={slug}></CommentForm>
+          <ul className="pl-4 mt-4">
             {comments.length > 0 ? comments.map((comment) => (
-              <li key={comment.id} className="mb-2">
+              <li key={comment.id} className="my-2">
                 <div className="flex items-start space-x-3">
                   <Image
                     src={comment.authorImageUrl || "/default-avatar.png"}
@@ -92,7 +95,7 @@ export default async function Post({ params: { slug } }: Props) {
                     className="rounded-full"
                   ></Image>
                   <div>
-                    <p className="text-sm font-semibold">{comment.authorEmail}</p>
+                    <p className="text-sm font-semibold">{comment.authorName}</p>
                     <p className="text-sm">{comment.content}</p>
                     <p className="text-xs text-gray-500">{new Date(comment.createdAt).toLocaleString()}</p>
                   </div>
