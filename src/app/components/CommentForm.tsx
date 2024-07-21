@@ -2,10 +2,13 @@
 
 import { Textarea } from "@nextui-org/input";
 import { Button } from "@nextui-org/button";
+import { Avatar } from "@nextui-org/react";
 import { useSession } from "next-auth/react";
 import { useRef } from "react";
 import { addComment } from "../lib/actions";
+import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 interface CommentFormProps {
   blog: string;
@@ -48,18 +51,28 @@ export default function CommentForm({ blog }: CommentFormProps) {
         );
         ref.current?.reset(); // reset the form
       }}
-      className="flex items-center space-x-2"
+      className="flex flex-col items-center space-y-2"
     >
-      <Textarea
-        type="text"
-        name="comment"
-        placeholder="Aa..."
-        variant="faded"
-        maxLength={200}
-      ></Textarea>
-      <Button type="submit" color="secondary">
-        Post
-      </Button>
+      <div className="flex w-full gap-4">
+        <Avatar src={authorImageUrl} size="md" />
+        <Textarea
+          type="text"
+          name="comment"
+          placeholder="Aa..."
+          variant="faded"
+          maxLength={200}
+        ></Textarea>
+      </div>
+
+      <div className="flex justify-end w-full">
+        <Button
+          type="submit"
+          color="secondary"
+          startContent={<FontAwesomeIcon icon={faPaperPlane} />}
+        >
+          Post Comment
+        </Button>
+      </div>
     </form>
   );
 }

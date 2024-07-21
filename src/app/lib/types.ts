@@ -7,3 +7,10 @@ export interface Comment {
     authorImageUrl: string;
     createdAt: Date;
   }
+
+export interface Like {
+  id: string;
+  blog: string;
+  authorEmail: string;
+  createdAt: Date;
+}
