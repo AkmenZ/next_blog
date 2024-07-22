@@ -38,7 +38,7 @@ export default async function Post({ params: { slug } }: Props) {
 
   return (
     <>
-      <div className="py-20 px-20 sm:px-4">
+      <div className="py-8 md:py-10 px-4 md:px-10">
         <div className="relative w-full h-48 md:h-72 lg:h-96">
           <Image
             src={post.metadata.image}

@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import LoginModal from "./components/LoginModal";
 import SessionProvider from "./lib/provider";
@@ -26,7 +25,6 @@ export default function RootLayout({
       <body className={inter.className}>
         <Providers>
           <SessionProvider>
-            {/* <Navbar></Navbar> */}
             <Nav></Nav>
             <div className="container mx-auto">{children}</div>
             <Suspense>
