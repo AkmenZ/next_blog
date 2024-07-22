@@ -1,13 +1,9 @@
 import type { Post } from "@/app/lib/post-utils";
 import type { Comment, Like } from "@/app/lib/types";
 import Image from "next/image";
-import { Avatar } from "@nextui-org/react";
 import { getPostByName, getPostsMetadata } from "@/app/lib/post-utils";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faComment,
-  faThumbsUp
-} from "@fortawesome/free-solid-svg-icons";
+import { faComment, faThumbsUp } from "@fortawesome/free-solid-svg-icons";
 import "highlight.js/styles/github-dark-dimmed.css";
 import { getComments, getLikes } from "@/app/lib/actions";
 import CommentForm from "@/app/components/CommentForm";
@@ -42,28 +38,26 @@ export default async function Post({ params: { slug } }: Props) {
 
   return (
     <>
-      <div className="p-20">
+      <div className="py-20 px-20 sm:px-4">
         <div className="relative w-full h-48 md:h-72 lg:h-96">
           <Image
             src={post.metadata.image}
             alt="main image"
-            layout="fill"
-            objectFit="cover"
-            objectPosition="top"
+            fill
+            style={{objectFit: "cover"}}
           ></Image>
         </div>
         <h2 className="text-5xl font-semibold my-4">{metadata.title}</h2>
 
         <div className="border-t border-b border-gray-200 py-4">
           <div className="flex items-center space-x-3">
-            <Avatar src={metadata.authorImage} size="md"></Avatar>
-            {/* <Image
+            <Image
               src={metadata.authorImage || "/default-avatar.png"}
               alt="User Image"
               width={40}
               height={40}
               className="rounded-full"
-            ></Image> */}
+            ></Image>
             <div className="flex flex-col">
               <h2 className="text-lg font-semibold">{metadata.author}</h2>
               <p className="text-sm font-extralight text-gray-500">
@@ -99,7 +93,13 @@ export default async function Post({ params: { slug } }: Props) {
                   className="my-4 border-b border-gray-200 p-4"
                 >
                   <div className="flex items-start space-x-3 w-full">
-                    <Avatar src={comment.authorImageUrl} size="md"></Avatar>
+                    <Image
+                      src={comment.authorImageUrl || "/default-avatar.png"}
+                      alt="User Image"
+                      width={40}
+                      height={40}
+                      className="rounded-full"
+                    ></Image>
                     <div className="w-full">
                       <div className="flex items-center justify-between w-full">
                         <p className="text-sm font-semibold">

@@ -54,7 +54,7 @@ export default function Navbar() {
                 <Button
                   onClick={() => signOut()}
                   radius="sm"
-                  className="px-4 py-2 text-white bg-violet-500 hover:bg-violet-700"
+                  color="secondary"
                 >
                   Sign Out
                 </Button>
@@ -75,7 +75,7 @@ export default function Navbar() {
               <Link href="?login=true">
                 <Button
                   radius="sm"
-                  className="px-4 py-2 text-white bg-violet-500 hover:bg-violet-700"
+                  color="secondary"
                 >
                   Sign In
                 </Button>

@@ -15,9 +15,9 @@ export default async function Posts() {
         <div className="relative h-56 w-full flex items-center justify-center">
           <Image
             src={post.image}
-            alt="image"
-            layout="fill"
-            objectFit="cover"
+            alt="image"          
+            fill
+            style={{objectFit: "cover"}}
           ></Image>
           <p className="text-sm text-white bg-black bg-opacity-60 absolute top-0 left-0 ml-3 mt-2 py-1 px-2 rounded">
             {post.tags.join(" / ")}

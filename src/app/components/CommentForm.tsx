@@ -2,7 +2,7 @@
 
 import { Textarea } from "@nextui-org/input";
 import { Button } from "@nextui-org/button";
-import { Avatar } from "@nextui-org/react";
+import Image from "next/image";
 import { useSession } from "next-auth/react";
 import { useRef } from "react";
 import { addComment } from "../lib/actions";
@@ -29,7 +29,7 @@ export default function CommentForm({ blog }: CommentFormProps) {
         <Link href="?login=true">
           <Button
             radius="sm"
-            className="px-4 py-2 text-white bg-violet-500 hover:bg-violet-700"
+            color="secondary"
           >
             Sign In
           </Button>
@@ -54,12 +54,22 @@ export default function CommentForm({ blog }: CommentFormProps) {
       className="flex flex-col items-center space-y-2"
     >
       <div className="flex w-full gap-4">
-        <Avatar src={authorImageUrl} size="md" />
+        <div>
+          <Image
+            src={authorImageUrl}
+            alt="User Image"
+            width={40}
+            height={40}
+            className="rounded-full"
+          ></Image>
+        </div>
+
         <Textarea
           type="text"
           name="comment"
           placeholder="Aa..."
           variant="faded"
+          minRows={4}
           maxLength={200}
         ></Textarea>
       </div>
