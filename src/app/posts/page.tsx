@@ -37,7 +37,7 @@ export default async function Posts() {
   ));
 
   return (
-    <div className="flex min-h-screen flex-col mt-16 p-10 gap-6 md:grid md:grid-cols-2 lg:grid-cols-3 justify-center">
+    <div className="flex min-h-screen flex-col p-10 gap-6 md:grid md:grid-cols-2 lg:grid-cols-3 justify-center">
       {posts}
     </div>
   );

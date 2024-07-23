@@ -1,18 +1,21 @@
-import Link from "next/link";
+import { Link } from "@nextui-org/react";
+import NextLink from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-indigo-900 text-white p-4">
-      <div className="flex justify-items-center">
-        <ul className="flex space-x-4">
-          <li>
-            <Link href="/">Home</Link>
-          </li>
-          <li>
-            <Link href="/contact">Contact</Link>
-          </li>
-        </ul>
-      </div>
+    <footer className="w-full h-20 flex items-center justify-center">
+      <ul className="flex space-x-4">
+        <li>
+          <Link as={NextLink} href="/" color="secondary">
+            Home
+          </Link>
+        </li>
+        <li>
+          <Link as={NextLink} href="/contact" color="secondary">
+            Contacts
+          </Link>
+        </li>
+      </ul>
     </footer>
   );
 }
