@@ -43,7 +43,7 @@ export default function Nav() {
       <NavbarContent className="sm:hidden" justify="start">
         <NavbarMenuToggle onChange={() => setIsMenuOpen(!isMenuOpen)} />
       </NavbarContent>
-      <NavbarContent>
+      <NavbarContent justify="center">
         <NavbarBrand>
           <Link href="/" as={NextLink}>
             <Logo></Logo>
@@ -52,7 +52,7 @@ export default function Nav() {
       </NavbarContent>
 
       {/* collapable elements */}
-      <NavbarContent className="hidden sm:flex gap-4" justify="center">
+      <NavbarContent className="hidden sm:flex gap-4 pl-4">
         {menuItems.map((item) => (
           <NavbarItem key={item.path} isActive={pathname === item.path}>
             <Link color="secondary" href={item.path} as={NextLink}>
@@ -61,8 +61,7 @@ export default function Nav() {
           </NavbarItem>
         ))}
       </NavbarContent>
-      {/* uncollapsable elements */}
-      <NavbarContent justify="end">
+      <NavbarContent className="hidden sm:flex" justify="end">
         {session?.user && (
           <>
             <NavbarItem>
@@ -70,7 +69,7 @@ export default function Nav() {
                 Sign Out
               </Button>
             </NavbarItem>
-            <NavbarItem className="hidden sm:flex">
+            <NavbarItem>
               <Image
                 src={session.user.image || "/default-avatar.png"}
                 alt="User Image"
@@ -92,24 +91,45 @@ export default function Nav() {
         )}
       </NavbarContent>
       {/* navbar menu */}
-      <NavbarMenu>
-        {menuItems.map((item, index) => (
-          <NavbarMenuItem
-            key={`${item}-${index}`}
-            isActive={pathname === item.path}
-          >
-            <Link
-              className="w-full"
-              size="lg"
-              color="secondary"
-              href={item.path}
-              onClick={handleLinkClick}
-              as={NextLink}
+      <NavbarMenu className="flex justify-between pb-4">
+        <div>
+          {menuItems.map((item, index) => (
+            <NavbarMenuItem
+              key={`${item}-${index}`}
+              isActive={pathname === item.path}
             >
-              {item.name}
-            </Link>
+              <Link
+                className="w-full"
+                size="lg"
+                color="secondary"
+                href={item.path}
+                onClick={handleLinkClick}
+                as={NextLink}
+              >
+                {item.name}
+              </Link>
+            </NavbarMenuItem>
+          ))}
+        </div>
+        {/* login button */}
+          <NavbarMenuItem className="flex justify-end">
+            {session?.user && (
+              <NavbarItem>
+                <Button onClick={() => signOut()} radius="sm" color="secondary">
+                  Sign Out
+                </Button>
+              </NavbarItem>
+            )}
+            {!session && (
+              <NavbarItem>
+                <Link href="?login=true" as={NextLink}>
+                  <Button radius="sm" color="secondary">
+                    Sign In
+                  </Button>
+                </Link>
+              </NavbarItem>
+            )}
           </NavbarMenuItem>
-        ))}
       </NavbarMenu>
     </Navbar>
   );

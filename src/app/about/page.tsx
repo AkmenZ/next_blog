@@ -1,6 +1,7 @@
 import { Link, Button } from "@nextui-org/react";
 import Image from "next/image";
 import ProjectShowcase from "../components/ProjectShowcase";
+import AppStoreLinks from "../components/AppStoreLinks";
 
 export default function About() {
   return (
@@ -47,9 +48,9 @@ export default function About() {
                 as={Link}
                 isIconOnly
                 radius="sm"
-                color="primary"
+                variant="faded"
                 style={{
-                  border: "2px solid white",
+                  border: "2px solid #0077B5",
                 }}
               >
                 <Image
@@ -64,16 +65,18 @@ export default function About() {
         </div>
       </div>
       {/* my projects */}
-      <div className="flex justify-center p-4">
-        <h3 className="text-3xl font-bold">My Projects</h3>
+      <div className="flex justify-center pt-4">
+        <h3 className="text-4xl font-bold">My Projects</h3>
       </div>
-      <div className="w-full bg-slate-200 p-10 rounded-lg">
+      {/* mobo */}
+      <div className="w-full px-10 pt-10 my-4">
         <ProjectShowcase
           title="MOBO"
           description="MOBO is a fully featured car listings platform, tailored to Latvian region and market. 
-          The app is built with Flutter/Dart at it's core, and utilizes Supabase as it's backend. 
+          The app is built with Flutter/Dart at it's core, and utilizes Supabase for backend services. 
           It features account creation, individual and business user profile settup, and 1 on 1 realtime chat. 
           It integrates Stripe for payments, and additional features, like push notifications, are handled by Firebase."
+          logo="/mobo-logo.png"
           image="/mobo-project.png"
           technologies={[
             "/flutter-logo.svg",
@@ -82,7 +85,28 @@ export default function About() {
             "/javascript-logo.svg",
             "/stripe-logo.svg",
           ]}
-          links={["/app-store-badge.svg", "/google-play-badge.svg"]}
+        ></ProjectShowcase>
+        <AppStoreLinks appStoreLink="" playStoreLink=""></AppStoreLinks>
+      </div>
+      {/* blog */}
+      <div className="w-full px-10 pt-10 my-4">
+        <ProjectShowcase
+          title="ak.blog"
+          description="Welcome! You're already here. An app like this is a great way to showcase your developer skills and also serves as part of portfolio. 
+          The blog posts I make cover things I've worked on and had to research myself. The app itself is a full stack NextJS project written in TypeScript, 
+          and the blog posts are in a seperate project as MDX files that get revalidated every 24 hours, since NextJS uses static site generation.
+          This way it makes it easy for me to add new posts without the need to redeploy the app itself. I'm using Next Auth package to authenticate users with Google provider. 
+          This allows to add like feature and a comment section, which stores data in a MongoDB Atlas database. To make the interaction easier, I'm using Prisma ORM. 
+          UI/UX is a key part in any site, and to make things appealing, I used Tailwind CSS with Next UI library."
+          logo="/mobo-logo.png"
+          image="/blog-project.png"
+          technologies={[
+            "/nextjs-logo.svg",
+            "/tailwind-logo.svg",
+            "/typescript-logo.svg",
+            "/prisma-logo.svg",
+            "/mongodb-logo.svg"
+          ]}
         ></ProjectShowcase>
       </div>
     </>

@@ -21,7 +21,7 @@ export default function Hero() {
           Welcome to my Blog
         </span>
         <p className="text-lg font-light">
-          I write about web and mobile development...
+          I write about web and mobile development..<span className="blinking-dot">.</span>
         </p>
       </div>
     </section>

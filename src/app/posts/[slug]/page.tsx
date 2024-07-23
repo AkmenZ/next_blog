@@ -49,7 +49,7 @@ export default async function Post({ params: { slug } }: Props) {
         </div>
         <h2 className="text-5xl font-semibold my-4">{metadata.title}</h2>
 
-        <div className="border-t border-b border-gray-200 py-4">
+        <div className="border-t border-b border-black border-opacity-20 py-4">
           <div className="flex items-center space-x-3">
             <Image
               src={metadata.authorImage || "/default-avatar.png"}
@@ -69,7 +69,7 @@ export default async function Post({ params: { slug } }: Props) {
 
         <article className="pt-4 pb-8">{content}</article>
 
-        <div className="border-t border-b border-gray-200 p-4">
+        <div className="border-t border-b border-black border-opacity-20 p-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
               <FontAwesomeIcon icon={faComment} className="h-6 w-6" />
@@ -81,7 +81,7 @@ export default async function Post({ params: { slug } }: Props) {
           </div>
         </div>
 
-        {/* comments */}
+        {/* comments list */}
         <div className="mt-4">
           <h3 className="text-2xl font-semibold mb-4">Comments</h3>
           <CommentForm blog={slug}></CommentForm>
@@ -90,7 +90,7 @@ export default async function Post({ params: { slug } }: Props) {
               comments.map((comment) => (
                 <li
                   key={comment.id}
-                  className="my-4 border-b border-gray-200 p-4"
+                  className="my-4 border-b border-black border-opacity-20 p-4"
                 >
                   <div className="flex items-start space-x-3 w-full">
                     <Image
