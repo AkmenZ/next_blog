@@ -12,6 +12,6 @@
     }
   }
   
-  .blinking-dot {
+  .blinking-symbol {
     animation: blink 1s infinite;
   }

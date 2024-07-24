@@ -112,7 +112,7 @@ export default function Nav() {
           ))}
         </div>
         {/* login button */}
-          <NavbarMenuItem className="flex justify-end">
+          <NavbarMenuItem className="flex justify-end pb-20">
             {session?.user && (
               <NavbarItem>
                 <Button onClick={() => signOut()} radius="sm" color="secondary">

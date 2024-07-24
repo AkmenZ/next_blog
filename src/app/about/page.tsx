@@ -84,7 +84,7 @@ export default function About() {
             "/javascript-logo.svg",
             "/stripe-logo.svg",
           ]}
-          appStoreLinks={{appStoreLink: "", playStoreLink: ""}}
+          appStoreLinks={{appStoreLink: "https://apps.apple.com/ie/app/mobo-lv/id6467503039", playStoreLink: "https://play.google.com/store/apps/details?id=com.moboapp.listings_app&pcampaignid=web_share"}}
         ></ProjectShowcase>
       </div>
       {/* blog */}

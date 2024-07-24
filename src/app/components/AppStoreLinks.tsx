@@ -10,13 +10,13 @@ export default function AppStoreLinks(props: AppStoreLinkProps) {
   const { appStoreLink, playStoreLink } = props;
 
   return (
-    <div className="flex justify-center space-x-3">
+    <div className="flex justify-center space-x-4">
       <Link href={appStoreLink}>
         <Image
           src="/app-store-badge.svg"
           alt="App Store"
-          width={130}
-          height={30}
+          width={150}
+          height={50}
         ></Image>
       </Link>
 
@@ -24,8 +24,8 @@ export default function AppStoreLinks(props: AppStoreLinkProps) {
         <Image
           src="/google-play-badge.svg"
           alt="App Store"
-          width={130}
-          height={30}
+          width={150}
+          height={50}
         ></Image>
       </Link>
     </div>
