@@ -1,7 +1,7 @@
 import { Link } from "@nextui-org/react";
 import Image from "next/image";
 
-interface AppStoreLinkProps {
+export interface AppStoreLinkProps {
   appStoreLink: string;
   playStoreLink: string;
 }
@@ -10,12 +10,12 @@ export default function AppStoreLinks(props: AppStoreLinkProps) {
   const { appStoreLink, playStoreLink } = props;
 
   return (
-    <div className="flex justify-center md:justify-end space-x-3">
+    <div className="flex justify-center space-x-3">
       <Link href={appStoreLink}>
         <Image
           src="/app-store-badge.svg"
           alt="App Store"
-          width={120}
+          width={130}
           height={30}
         ></Image>
       </Link>
@@ -24,7 +24,7 @@ export default function AppStoreLinks(props: AppStoreLinkProps) {
         <Image
           src="/google-play-badge.svg"
           alt="App Store"
-          width={120}
+          width={130}
           height={30}
         ></Image>
       </Link>

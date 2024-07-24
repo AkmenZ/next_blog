@@ -1,7 +1,6 @@
 import { Link, Button } from "@nextui-org/react";
 import Image from "next/image";
 import ProjectShowcase from "../components/ProjectShowcase";
-import AppStoreLinks from "../components/AppStoreLinks";
 
 export default function About() {
   return (
@@ -71,8 +70,8 @@ export default function About() {
       {/* mobo */}
       <div className="w-full px-10 pt-10 my-4">
         <ProjectShowcase
-          title="MOBO"
-          description="MOBO is a fully featured car listings platform, tailored to Latvian region and market. 
+          title="mobo"
+          description="Mobo is a fully featured car listings platform, tailored to Latvian region and market. 
           The app is built with Flutter/Dart at it's core, and utilizes Supabase for backend services. 
           It features account creation, individual and business user profile settup, and 1 on 1 realtime chat. 
           It integrates Stripe for payments, and additional features, like push notifications, are handled by Firebase."
@@ -85,8 +84,8 @@ export default function About() {
             "/javascript-logo.svg",
             "/stripe-logo.svg",
           ]}
+          appStoreLinks={{appStoreLink: "", playStoreLink: ""}}
         ></ProjectShowcase>
-        <AppStoreLinks appStoreLink="" playStoreLink=""></AppStoreLinks>
       </div>
       {/* blog */}
       <div className="w-full px-10 pt-10 my-4">
