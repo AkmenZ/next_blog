@@ -38,17 +38,17 @@ export default async function Post({ params: { slug } }: Props) {
 
   return (
     <>
-      <div className="py-8 md:py-10 px-4 md:px-10">
-        <div className="relative w-full h-48 md:h-72 lg:h-96">
-          <Image
-            src={post.metadata.image}
-            alt="main image"
-            fill
-            style={{objectFit: "cover"}}
-          ></Image>
-        </div>
+      <div className="relative w-full h-56 md:h-96">
+        <Image
+          src={post.metadata.image}
+          alt="main image"
+          fill
+          style={{ objectFit: "cover" }}
+          className="md:px-10"
+        ></Image>
+      </div>
+      <div className="py-1 px-6 md:px-10">
         <h2 className="text-5xl font-semibold my-4">{metadata.title}</h2>
-
         <div className="border-t border-b border-black border-opacity-20 py-4">
           <div className="flex items-center space-x-3">
             <Image

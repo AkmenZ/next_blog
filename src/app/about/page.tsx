@@ -5,7 +5,7 @@ import ProjectShowcase from "../components/ProjectShowcase";
 export default function About() {
   return (
     <>
-      <div className="relative w-full bg-gradient-to-r from-purple-500 to-indigo-500 p-10 rounded-lg">
+      <div className="relative w-full bg-gradient-to-r from-purple-500 to-indigo-500 p-10">
         <div className="flex flex-col md:flex-row items-center md:items-start">
           <Image
             src="/akblog.jpeg"
@@ -49,7 +49,7 @@ export default function About() {
         </div>
       </div>
       {/* my projects */}
-      <div className="flex justify-center pt-4">
+      <div className="flex justify-center pt-10">
         <h3 className="text-4xl font-bold">My Projects</h3>
       </div>
       {/* mobo */}
