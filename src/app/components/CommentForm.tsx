@@ -30,6 +30,7 @@ export default function CommentForm({ blog }: CommentFormProps) {
           <Button
             radius="sm"
             color="secondary"
+            variant="ghost"
           >
             Sign In
           </Button>

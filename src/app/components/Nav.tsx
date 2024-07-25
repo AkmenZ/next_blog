@@ -65,7 +65,12 @@ export default function Nav() {
         {session?.user && (
           <>
             <NavbarItem>
-              <Button onClick={() => signOut()} radius="sm" color="secondary">
+              <Button
+                onClick={() => signOut()}
+                radius="sm"
+                color="secondary"
+                variant="ghost"
+              >
                 Sign Out
               </Button>
             </NavbarItem>
@@ -83,7 +88,7 @@ export default function Nav() {
         {!session && (
           <NavbarItem>
             <Link href="?login=true" as={NextLink}>
-              <Button radius="sm" color="secondary">
+              <Button radius="sm" color="secondary" variant="ghost">
                 Sign In
               </Button>
             </Link>
@@ -91,7 +96,7 @@ export default function Nav() {
         )}
       </NavbarContent>
       {/* navbar menu */}
-      <NavbarMenu className="flex justify-between pb-4">
+      <NavbarMenu className="flex justify-between pb-5">
         <div>
           {menuItems.map((item, index) => (
             <NavbarMenuItem
@@ -99,7 +104,7 @@ export default function Nav() {
               isActive={pathname === item.path}
             >
               <Link
-                className="w-full"
+                className="w-full py-1"
                 size="lg"
                 color="secondary"
                 href={item.path}
@@ -112,24 +117,29 @@ export default function Nav() {
           ))}
         </div>
         {/* login button */}
-          <NavbarMenuItem className="flex justify-end pb-20">
-            {session?.user && (
-              <NavbarItem>
-                <Button onClick={() => signOut()} radius="sm" color="secondary">
-                  Sign Out
+        <NavbarMenuItem className="flex justify-end pb-28">
+          {session?.user && (
+            <NavbarItem>
+              <Button
+                onClick={() => signOut()}
+                radius="sm"
+                color="secondary"
+                variant="ghost"
+              >
+                Sign Out
+              </Button>
+            </NavbarItem>
+          )}
+          {!session && (
+            <NavbarItem>
+              <Link href="?login=true" as={NextLink}>
+                <Button radius="sm" color="secondary" variant="ghost">
+                  Sign In
                 </Button>
-              </NavbarItem>
-            )}
-            {!session && (
-              <NavbarItem>
-                <Link href="?login=true" as={NextLink}>
-                  <Button radius="sm" color="secondary">
-                    Sign In
-                  </Button>
-                </Link>
-              </NavbarItem>
-            )}
-          </NavbarMenuItem>
+              </Link>
+            </NavbarItem>
+          )}
+        </NavbarMenuItem>
       </NavbarMenu>
     </Navbar>
   );
