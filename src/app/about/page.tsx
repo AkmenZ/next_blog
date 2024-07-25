@@ -19,11 +19,11 @@ export default function About() {
               Hello!
             </p>
             <p className="text-white m-4 text-left">
-            My name is Janis. I'm a software developer from Sligo, Ireland. I graduated in Software Development from Atlantic Technological University in 2023. 
+            My name is Janis. I&apos;m a software developer from Sligo, Ireland. I graduated in Software Development from Atlantic Technological University in 2023. 
             I have experience working with a company that provides websites, room booking systems, and digital marketing solutions to 4* and 5* hotels. 
             This role helped me develop essential skills in software development and design, which I enjoy showcasing in my own projects. 
-            I'm particularly interested in web and mobile development, including game design. 
-            I'm always on the lookout for intriguing ideas, collaborations, and projects, so feel free to reach out!
+            I&apos;m particularly interested in web and mobile development, including game design. 
+            I&apos;m always on the lookout for intriguing ideas, collaborations, and projects, so feel free to reach out!
             </p>
             <div className="flex items-center justify-end gap-4">
               <p>Lets Connect</p>
