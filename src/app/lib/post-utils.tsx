@@ -91,7 +91,7 @@ export async function getPostsMetadata(limit?: number): Promise<Metadata[] | und
   const res = await fetch(
     "https://api.github.com/repos/Akmenz/mdx_blogposts/git/trees/main?recursive=1",
     {
-      next: { revalidate: 10 },
+      next: { revalidate: 3600 }, // revalidate every hour
       headers: {
         "Cache-Control": "no-cache",
         Accept: "application/vnd.github+json",
@@ -124,7 +124,7 @@ export async function getPostsMetadata(limit?: number): Promise<Metadata[] | und
     }
   }
 
-  console.log(`Posts metadata:`, posts);
+  // console.log(`Posts metadata:`, posts);
 
   const sortedPosts = posts.sort((a, b) => (a.date < b.date ? 1 : -1));
 
