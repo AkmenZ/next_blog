@@ -39,6 +39,7 @@ export default function Nav() {
       maxWidth="xl"
       isMenuOpen={isMenuOpen}
       onMenuOpenChange={setIsMenuOpen}
+      className="mb-2"
     >
       <NavbarContent className="sm:hidden" justify="start">
         <NavbarMenuToggle onChange={() => setIsMenuOpen(!isMenuOpen)} />

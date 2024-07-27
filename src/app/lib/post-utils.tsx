@@ -87,7 +87,7 @@ export async function getPostByName(name: string): Promise<Post> {
   return postObj;
 }
 
-export async function getPostsMetadata(): Promise<Metadata[] | undefined> {
+export async function getPostsMetadata(limit?: number): Promise<Metadata[] | undefined> {
   const res = await fetch(
     "https://api.github.com/repos/Akmenz/mdx_blogposts/git/trees/main?recursive=1",
     {
@@ -126,5 +126,11 @@ export async function getPostsMetadata(): Promise<Metadata[] | undefined> {
 
   console.log(`Posts metadata:`, posts);
 
-  return posts.sort((a, b) => (a.date < b.date ? 1 : -1));
+  const sortedPosts = posts.sort((a, b) => (a.date < b.date ? 1 : -1));
+
+  if (limit) {
+    return sortedPosts.slice(0, limit);
+  }
+
+  return sortedPosts;
 }

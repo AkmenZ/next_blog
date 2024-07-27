@@ -50,7 +50,7 @@ export default function About() {
       </div>
       {/* my projects */}
       <div className="flex justify-center pt-10">
-        <h3 className="text-4xl font-bold">My Projects</h3>
+        <h3 className="text-5xl font-bold">My Projects</h3>
       </div>
       {/* mobo */}
       <div className="w-full px-10 pt-10 my-4">
