@@ -1,6 +1,6 @@
-import { Link, Button } from "@nextui-org/react";
 import Image from "next/image";
 import ProjectShowcase from "../components/ProjectShowcase";
+import LinkedInButton from "../components/LinkedInButton";
 
 export default function About() {
   return (
@@ -25,25 +25,9 @@ export default function About() {
             I&apos;m particularly interested in web and mobile development, including game design. 
             I&apos;m always on the lookout for intriguing ideas, collaborations, and projects, so feel free to reach out!
             </p>
-            <div className="flex items-center justify-end gap-4">
-              <p>Lets Connect</p>
-              <Button
-                href="https://www.linkedin.com/in/janisakmentins/"
-                as={Link}
-                isIconOnly
-                radius="sm"
-                variant="faded"
-                style={{
-                  border: "2px solid #0077B5",
-                }}
-              >
-                <Image
-                  src="/linkedin-logo.svg"
-                  alt="LinkedIn Logo"
-                  width="24"
-                  height="24"
-                />
-              </Button>
+            <div className="flex items-center justify-end gap-2">
+              <p className="text-white">Lets Connect</p>
+              <LinkedInButton></LinkedInButton>
             </div>
           </div>
         </div>

@@ -1,7 +1,16 @@
+import ContactForm from "../components/ContactForm";
+import GitHubButton from "../components/GitHubButton";
+import LinkedInButton from "../components/LinkedInButton";
+
 export default function Contact() {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-between p-24">
-      <p>This is contact me page using app router!</p>
+    <div className="flex h-screen flex-col items-center space-y-4">
+      <p className="text-5xl font-semibold">Contact Form</p>
+      <ContactForm></ContactForm>
+      <div className="flex gap-4 pt-2">
+        <GitHubButton></GitHubButton>
+        <LinkedInButton></LinkedInButton>
+      </div>
     </div>
   );
 }
