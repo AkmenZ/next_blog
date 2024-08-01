@@ -5,22 +5,6 @@ import { revalidatePath } from "next/cache";
 import { Resend } from "resend";
 
 // comments
-export async function getComments(blog: string) {
-  try {
-    const comments = await prisma.comment.findMany({
-      where: { blog: blog },
-      orderBy: { createdAt: "desc" },
-    });
-    return { success: true, data: comments };
-  } catch (error) {
-    let errorMessage = "An unknown error occurred";
-    if (error instanceof Error) {
-      errorMessage = error.message;
-    }
-    return { success: false, error: errorMessage };
-  }
-}
-
 export async function addComment(
   blog: string,
   FormData: FormData,
@@ -52,22 +36,6 @@ export async function addComment(
 }
 
 // likes
-export async function getLikes(blog: string) {
-  try {
-    const likes = await prisma.like.findMany({
-      where: { blog: blog },
-      orderBy: { createdAt: "desc" },
-    });
-    return { success: true, data: likes };
-  } catch (error) {
-    let errorMessage = "An unknown error occurred";
-    if (error instanceof Error) {
-      errorMessage = error.message;
-    }
-    return { success: false, error: errorMessage };
-  }
-}
-
 export async function addLike(blog: string, authorEmail: string) {
   try {
     const newLike = await prisma.like.create({

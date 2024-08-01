@@ -5,7 +5,7 @@ import { getPostByName, getPostsMetadata } from "@/app/lib/post-utils";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faComment, faThumbsUp } from "@fortawesome/free-solid-svg-icons";
 import "highlight.js/styles/github-dark-dimmed.css";
-import { getComments, getLikes } from "@/app/lib/actions";
+import { getComments, getLikes } from "@/app/lib/data";
 import CommentForm from "@/app/components/CommentForm";
 import LikeButton from "@/app/components/LikeButton";
 
