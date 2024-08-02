@@ -20,6 +20,8 @@ export default function CookieConsent() {
   return (
     <>
       {showConsent && (
+        <>
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-40"></div>
         <div className="fixed bottom-0 left-0 w-full bg-white p-6 z-50 flex justify-between items-center border-t border-black border-opacity-20">
           <p>
             This website uses cookies to improve user experience. By using this
@@ -34,6 +36,7 @@ export default function CookieConsent() {
             Accept
           </Button>
         </div>
+        </>
       )}
     </>
   );
