@@ -3,7 +3,7 @@ export default function Privacy() {
     <>
       <div className="pt-4 px-6 pb-20 md:pb-6">
         <div>
-          <h1 className="text-2xl font-bold mb-4 text-center">
+          <h1 className="text-3xl font-bold mb-4 text-center">
             Privacy Policy
           </h1>
           <p className="text-center">
@@ -13,7 +13,7 @@ export default function Privacy() {
           </p>
           <br />
           <p className="text-left">
-            www.ak-blog.com (the "Site") is owned and operated by Janis
+            www.ak-blog.com (the &quot;Site&quot;) is owned and operated by Janis
             Akmentins. Janis Akmentins is the data controller and can be
             contacted at: <br />
             <br />
@@ -28,7 +28,7 @@ export default function Privacy() {
               <u>Purpose</u>
             </strong>
             <br />
-            The purpose of this privacy policy (this "Privacy Policy") is to
+            The purpose of this privacy policy (this &quot;Privacy Policy&quot;) is to
             inform users of our Site of the following:
           </p>
           <ol className="list-decimal list-inside ml-4">
@@ -36,7 +36,7 @@ export default function Privacy() {
             <li>Use of collected data;</li>
             <li>Who has access to the data collected;</li>
             <li>The rights of Site users; and</li>
-            <li>The Site's cookie policy.</li>
+            <li>The Site&#39;s cookie policy.</li>
           </ol>
           <p className="text-left">
             This Privacy Policy applies in addition to the terms and conditions
@@ -53,7 +53,7 @@ export default function Privacy() {
             <br />
             For users in the European Union, we adhere to the Regulation (EU)
             2016/679 of the European Parliament and of the Council of 27 April
-            2016, known as the General Data Protection Regulation (the "GDPR").
+            2016, known as the General Data Protection Regulation (the &quot;GDPR&quot;).
             For users in the United Kingdom, we adhere to the GDPR as enshrined
             in the Data Protection Act 2018.
             <br />
@@ -255,8 +255,8 @@ export default function Privacy() {
             <strong>
               <u>Cookie Policy</u>
             </strong>
-            <br />A cookie is a small file, stored on a user's hard drive by a
-            website. Its purpose is to collect data relating to the user's
+            <br />A cookie is a small file, stored on a user&#39;s hard drive by a
+            website. Its purpose is to collect data relating to the user&#39;s
             browsing habits. You can choose to be notified each time a cookie is
             transmitted. You can also choose to disable cookies entirely in your
             internet browser, but this may decrease the quality of your user
@@ -285,7 +285,7 @@ export default function Privacy() {
             This Privacy Policy may be amended from time to time in order to
             maintain compliance with the law and to reflect any changes to our
             data collection process. When we amend this Privacy Policy we will
-            update the "Effective Date" at the top of this Privacy Policy. We
+            update the &quot;Effective Date&quot; at the top of this Privacy Policy. We
             recommend that our users periodically review our Privacy Policy to
             ensure that they are notified of any updates. If necessary, we may
             notify users by email of changes to this Privacy Policy.
