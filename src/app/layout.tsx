@@ -7,6 +7,7 @@ import SessionProvider from "./lib/provider";
 import { Suspense } from "react";
 import { Providers } from "./providers";
 import Nav from "./components/Nav";
+import CookieConsent from "./components/CookieConsent";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -30,6 +31,7 @@ export default function RootLayout({
             <Suspense>
               <LoginModal></LoginModal>
             </Suspense>
+            <CookieConsent></CookieConsent>
             <Footer></Footer>
           </SessionProvider>
         </Providers>
