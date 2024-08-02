@@ -1,7 +1,7 @@
 export default function Privacy() {
   return (
     <>
-      <div className="pt-4 px-6 pb-20 md:pb-6">
+      <div className="pt-4 px-6 pb-24 md:pb-6">
         <div>
           <h1 className="text-3xl font-bold mb-4 text-center">
             Privacy Policy
