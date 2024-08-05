@@ -13,6 +13,7 @@ export default function CookieConsent() {
   }, []);
 
   function giveConsent() {
+    // setting expire time to be 1 day
     const oneDayFromNow = new Date();
     oneDayFromNow.setDate(oneDayFromNow.getDate() + 1);
     setCookie("cookieConsent", true, { expires: oneDayFromNow });

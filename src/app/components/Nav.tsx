@@ -26,7 +26,7 @@ export default function Nav() {
   const menuItems = [
     { name: "All Posts", path: "/posts" },
     { name: "About Me", path: "/about" },
-    { name: "Contacts", path: "/contact" },
+    { name: "Contact Me", path: "/contact" },
   ];
 
   const handleLinkClick = () => {
