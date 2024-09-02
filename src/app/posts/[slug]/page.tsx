@@ -4,10 +4,10 @@ import Image from "next/image";
 import { getPostByName, getPostsMetadata } from "@/app/lib/post-utils";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faComment, faThumbsUp } from "@fortawesome/free-solid-svg-icons";
-import "highlight.js/styles/github-dark-dimmed.css";
 import { getComments, getLikes } from "@/app/lib/data";
 import CommentForm from "@/app/components/CommentForm";
 import LikeButton from "@/app/components/LikeButton";
+import CopyButtonHandler from "@/app/components/CopyButton";
 
 type Props = {
   params: {
@@ -67,7 +67,10 @@ export default async function Post({ params: { slug } }: Props) {
           </div>
         </div>
 
-        <article className="pt-4 pb-8">{content}</article>
+        {/* mdx content */}
+        <article className="p-4">{content}</article>
+        <CopyButtonHandler />
+
 
         <div className="border-t border-b border-black border-opacity-20 p-4">
           <div className="flex items-center justify-between">

@@ -1,5 +1,5 @@
 import { compileMDX } from "next-mdx-remote/rsc";
-import rehypeHighlight from "rehype-highlight";
+import rehypePrettyCode from "rehype-pretty-code";
 
 export type Metadata = {
   slug: string;
@@ -23,6 +23,21 @@ type GitFileTree = {
       path: string;
     }
   ];
+};
+
+const prettyCodeOptions = {
+  lang: 'ts',
+  theme: 'one-dark-pro', // dark theme
+  keepBackground: true,
+  bypassInlineCode: true,
+
+  onVisitLine(node: any) {
+    if (node.properties?.className) {
+      node.properties.className.push("bg-[#282c34]");
+    } else {
+      node.properties = { className: ["bg-[#282c34]"] };
+    }
+  },
 };
 
 export async function getPostByName(name: string): Promise<Post> {
@@ -62,7 +77,8 @@ export async function getPostByName(name: string): Promise<Post> {
     options: {
       parseFrontmatter: true,
       mdxOptions: {
-        rehypePlugins: [rehypeHighlight],
+        // rehypePlugins: [rehypeHighlight],
+        rehypePlugins: [[rehypePrettyCode, prettyCodeOptions]],
       },
     },
   });
@@ -87,7 +103,9 @@ export async function getPostByName(name: string): Promise<Post> {
   return postObj;
 }
 
-export async function getPostsMetadata(limit?: number): Promise<Metadata[] | undefined> {
+export async function getPostsMetadata(
+  limit?: number
+): Promise<Metadata[] | undefined> {
   const res = await fetch(
     "https://api.github.com/repos/Akmenz/mdx_blogposts/git/trees/main?recursive=1",
     {
@@ -134,3 +152,7 @@ export async function getPostsMetadata(limit?: number): Promise<Metadata[] | und
 
   return sortedPosts;
 }
+function visit(tree: any, arg1: string, arg2: (node: any) => void) {
+  throw new Error("Function not implemented.");
+}
+

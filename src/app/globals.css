@@ -15,3 +15,7 @@
   .blinking-symbol {
     animation: blink 1s infinite;
   }
+
+  pre {
+    @apply p-2 rounded-md overflow-x-auto;
+  }
