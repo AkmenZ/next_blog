@@ -37,10 +37,16 @@ const addCopyButtons = () => {
       }, 2000);
     });
 
+    // wrapper div to contain the pre and button
+    const wrapperDiv = document.createElement("div");
+    wrapperDiv.style.position = "relative";
+
+    // move pre element inside the wrapper
     const pre = codeBlock.parentNode as HTMLElement;
     if (pre && pre.style) {
-      pre.style.position = "relative";
-      pre.appendChild(button);
+      pre.parentNode?.insertBefore(wrapperDiv, pre);
+      wrapperDiv.appendChild(pre);
+      wrapperDiv.appendChild(button);
     }
   });
 };
