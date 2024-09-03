@@ -17,20 +17,24 @@ export default function PostCard({ metadata }: PostCardProps) {
       <CardHeader className="relative">
         <Image
           src={metadata.image}
-          alt="image"          
+          alt="image"
           width={200}
           height={0}
           className="rounded-lg"
-          style={{objectFit: "cover", width: '100%', height: '220px'}}
+          style={{ objectFit: "cover", width: "100%", height: "220px" }}
         />
-            <p className="text-sm text-white bg-indigo-400 bg-opacity-25 absolute top-5 left-5 py-1 px-2 rounded-lg backdrop-blur-md shadow-small">
-                {metadata.tags.join(" / ")}
-            </p>
+        <p className="text-sm text-white bg-indigo-400 bg-opacity-25 absolute top-5 left-5 py-1 px-2 rounded-lg backdrop-blur-md shadow-small">
+          {metadata.tags.join(" / ")}
+        </p>
       </CardHeader>
       <CardBody>
         <h3 className="text-2xl font-bold">{metadata.title}</h3>
-        <p className="text-gray-600 text-lg my-2 truncate overflow-hidden whitespace-nowrap text-ellipsis">{metadata.description}</p>
-        <p className="text-gray-400 text-sm font-light text-right">{metadata.date}</p>
+        <p className="text-gray-600 text-lg my-2 truncate overflow-hidden whitespace-nowrap text-ellipsis">
+          {metadata.description}
+        </p>
+        <p className="text-gray-400 text-sm font-light text-right">
+          {metadata.date}
+        </p>
       </CardBody>
     </Card>
   );
