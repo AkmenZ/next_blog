@@ -75,6 +75,14 @@ export async function removeLike(blog: string, authorEmail: string) {
 // email
 export async function sendEmail(FormData: FormData) {
   const resend = new Resend(process.env.RESEND_API_KEY);
+
+  // HONEYPOT CHECK
+  const honeypot = FormData.get("phone_number");
+  if (honeypot) {
+    // If this field has value, it's a bot. Return success to trick them, but send nothing
+    return { success: true }; 
+  }
+
   try{
     await new Promise(resolve => setTimeout(resolve, 1000));
     const data = await resend.emails.send({

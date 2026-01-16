@@ -62,6 +62,15 @@ export default function ContactForm() {
       <div className="space-y-4 pb-10 border-b border-black border-opacity-20">
         <Input type="name" name="name" label="Name" variant="faded"></Input>
         <Input type="email" name="email" label="Email" variant="faded"></Input>
+        {/* HONEYPOT FIELD - START */}
+        <input 
+          type="text" 
+          name="phone_number" 
+          style={{ display: 'none' }} 
+          tabIndex={-1} 
+          autoComplete="off"
+        />
+        {/* HONEYPOT FIELD - END */}
         <Textarea label="Message" name="message" variant="faded"></Textarea>
         <div className="flex justify-center w-full pt-6">
           <SubmitButton></SubmitButton>

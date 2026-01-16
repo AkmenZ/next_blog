@@ -44,7 +44,7 @@ export async function getPostByName(name: string): Promise<Post> {
   const res = await fetch(
     `https://raw.githubusercontent.com/Akmenz/mdx_blogposts/main/posts/${name}`,
     {
-      next: { revalidate: 10 },
+      next: { revalidate: 3600 }, // revalidate every hour
       headers: {
         "Cache-Control": "no-cache",
         Accept: "application/vnd.github+json",
