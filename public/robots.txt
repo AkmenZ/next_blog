@@ -1,0 +1,13 @@
+# Allow all legitimate bots but with rate limiting
+User-agent: *
+Crawl-delay: 10
+
+# Disallow resource-heavy paths
+Disallow: /api/
+Disallow: /_next/
+
+# Allow main content
+Allow: /
+Allow: /posts/
+Allow: /about
+Allow: /contact
