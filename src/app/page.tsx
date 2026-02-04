@@ -3,6 +3,8 @@ import Hero from "./components/Hero";
 import { getPostsMetadata } from "./lib/post-utils";
 import PostCard from "./components/PostCard";
 
+export const revalidate = 86400; // revalidate this page every day
+
 export default async function Home() {
   const postsMetadata = await getPostsMetadata(3);
 

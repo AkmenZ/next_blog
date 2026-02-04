@@ -25,6 +25,9 @@ export async function generateStaticParams() {
   }));
 }
 
+export const dynamicParams = false; // Block 404s from triggering ISR
+export const revalidate = 86400; // Revalidate this page every day
+
 export default async function Post({ params: { slug } }: Props) {
   const post = await getPostByName(`${slug}.mdx`);
   const commentsResult = await getComments(slug);
